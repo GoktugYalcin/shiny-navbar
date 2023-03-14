@@ -1,0 +1,104 @@
+.shiny-navbar__box {
+    margin-bottom: 20px;
+    display: flex;
+    height: 40px;
+    padding: 6px;
+    border-radius: 9999px;
+    background: #1c1c1c;
+    overflow: hidden;
+    border: 1px solid #343434;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+.shiny-navbar__top {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), #343434 20%, #b6b6b6 67.19%, rgba(0, 0, 0, 0));
+    opacity: 0.6;
+    height: 1px;
+    position: absolute;
+    top: -0.757px;
+    width: 95%;
+    z-index: 1;
+}
+.shiny-navbar__element {
+    margin: 0;
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    text-align: center;
+    color: #a0a0a0;
+    padding-left: 12px;
+    padding-right: 12px;
+    outline: 0;
+    cursor: pointer;
+    transition: color 150ms ease 0s, text-shadow 250ms ease 0s;
+}
+.shiny-navbar__element:hover {
+    color: #ededed;
+}
+.shiny-navbar__element__selected {
+    user-select: none;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    text-shadow: rgba(255, 255, 255, 0.57) 1px 1px 12px;
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #efefef;
+    height: 100%;
+    z-index: 6;
+    background: #0003;
+    transition: backdrop-filter 500ms ease 0s;
+    border-radius: 500px 120px 120px 500px;
+    transform: none;
+    transform-origin: 50% 50% 0;
+}
+.shiny-selected {
+    text-shadow: #000 1px 1px 12px;
+    color: #efefef;
+}
+.shiny-borders_left {
+    border-radius: 500px 120px 120px 500px;
+}
+.shiny-borders_mid {
+    border-radius: 500px;
+}
+.shiny-borders_right {
+    border-radius: 120px 500px 500px 120px;
+}
+.shiny-glow {
+    background: white;
+    width: 50%;
+    height: 50px;
+    border-radius: 9999px;
+    position: absolute;
+    z-index: 1;
+    filter: blur(7px);
+    bottom: -46px;
+    opacity: 0.2;
+}
+@keyframes glower {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
