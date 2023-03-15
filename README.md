@@ -9,6 +9,9 @@ Inspired by [Rauno Freiberg](https://rauno.me/)'s craft.
 - SCSS
 - Framer Motion
 
+## Demo
+For demo, you can go this [CodeSandbox](https://codesandbox.io/s/magical-wilson-0jkkbs?file=/src/App.tsx)
+
 ## How to use?
 
 Get the package with,
