@@ -1,6 +1,6 @@
 # Shiny Navbar
 
-A navbar component built with React⚛️ + TypeScript\
+A navbar component built with React ⚛️ + TypeScript\
 Inspired by [Rauno Freiberg](https://rauno.me/)'s craft.
 
 ## Tech Stack
