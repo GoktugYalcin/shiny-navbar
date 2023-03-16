@@ -1,6 +1,6 @@
 {
   "name": "shiny-navbar",
-  "version": "1.1.44",
+  "version": "1.1.45",
   "description": "A shiny navbar for React. Inspired by Rauno Freiberg's storybook.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -63,8 +63,7 @@
     "typescript-plugin-css-modules": "^4.2.3"
   },
   "dependencies": {
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "framer-motion": "^10.2.5"
   }
 }
