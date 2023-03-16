@@ -1,29 +1,73 @@
-import * as React from 'react'
-import { render } from '@testing-library/react'
+import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-import 'jest-canvas-mock'
+import "jest-canvas-mock";
 
-import { ShinyNavbar, NavbarItem } from '../src/components/App'
+import { ShinyNavbar, NavbarItem } from "../src/components/App";
 
-describe('Common render', () => {
-  it('renders without crashing', () => {
-    const config: NavbarItem[] = [
-      {
-        label: 'string',
+describe("Common render", () => {
+  const config: NavbarItem[] = [
+    {
+      label: "Nav1",
+      onPerform() {
+        console.log("Nav1 is triggered!");
       },
-      {
-        label: 'string',
+    },
+    {
+      label: "Nav2",
+      onPerform() {
+        console.log("Nav2 is triggered!");
       },
-      {
-        label: 'string',
+      url: "https://google.com",
+    },
+    {
+      label: "Nav3",
+      onPerform(
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        item: NavbarItem,
+        itemIndex: number
+      ) {
+        console.log({ event, item, itemIndex });
       },
-      {
-        label: 'string',
+      customClass: "green-text",
+    },
+    {
+      label: "Nav4",
+      onPerform(
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        item: NavbarItem,
+        itemIndex: number
+      ) {
+        console.log({ event, item, itemIndex });
       },
-      {
-        label: 'string',
-      },
-    ]
-    render(<ShinyNavbar items={config} />)
-  })
-})
+    },
+  ];
+
+  it("renders without crashing", () => {
+    render(<ShinyNavbar items={config} />);
+  });
+
+  it("performs the onPerform property", async () => {
+    const logSpy = jest.spyOn(console, "log");
+    render(<ShinyNavbar items={config} />);
+
+    await userEvent.click(screen.getByText("Nav1"));
+    expect(logSpy).toBeCalledWith("Nav1 is triggered!");
+  });
+
+  it("opens url when click the specified item", async () => {
+    window.open = jest.fn();
+    const windowSpy = jest.spyOn(window, "open");
+    render(<ShinyNavbar items={config} />);
+
+    await userEvent.click(screen.getByText("Nav2"));
+    expect(windowSpy).toBeCalledWith(config[1].url, "_blank");
+  });
+
+  it("renders items with custom class", () => {
+    const { container } = render(<ShinyNavbar items={config} />);
+
+    expect(container.getElementsByClassName("green-text"));
+  });
+});

@@ -1,2 +1,2 @@
-import { ShinyNavbar } from './components/App';
+import { ShinyNavbar } from "./components/App";
 export { ShinyNavbar };

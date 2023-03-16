@@ -10,32 +10,36 @@ var ShinyNavbar = function (props) {
     var handlerOnClick = function (event, index, item) {
         setSelected(index);
         if (item.url) {
-            window.open(item.url, '_blank');
+            window.open(item.url, "_blank");
         }
         if (item.onPerform) {
             item.onPerform(event, item, index);
         }
     };
-    return (react_1["default"].createElement("div", { className: 'shiny-navbar__container' }, Boolean(items.length) && (react_1["default"].createElement("div", { className: 'shiny-navbar__box' },
-        react_1["default"].createElement("div", { className: 'shiny-navbar__top' }),
+    return (react_1["default"].createElement("div", { className: "shiny-navbar__container" }, Boolean(items.length) && (react_1["default"].createElement("div", { className: "shiny-navbar__box" },
+        react_1["default"].createElement("div", { className: "shiny-navbar__top" }),
         items.map(function (item, index) {
             var isSelected = selected === index;
-            var selectedBorder = "shiny-borders_".concat(index === 0 ? 'left' : index + 1 === items.length ? 'right' : 'mid');
-            return (react_1["default"].createElement("button", { key: index, onClick: function (e) { return handlerOnClick(e, index, item); }, className: "shiny-navbar__element".concat(isSelected ? ' shiny-selected' : '') },
+            var selectedBorder = "shiny-borders_".concat(index === 0
+                ? "left"
+                : index + 1 === items.length
+                    ? "right"
+                    : "mid");
+            return (react_1["default"].createElement("button", { key: index, onClick: function (e) { return handlerOnClick(e, index, item); }, className: "shiny-navbar__element".concat(isSelected ? " shiny-selected" : "").concat(item.customClass ? item.customClass : "") },
                 isSelected && (react_1["default"].createElement(react_1["default"].Fragment, null,
-                    react_1["default"].createElement(framer_motion_1.motion.div, { layoutId: 'bg', className: "shiny-navbar__element__selected ".concat(selectedBorder), transition: {
+                    react_1["default"].createElement(framer_motion_1.motion.div, { layoutId: "bg", className: "shiny-navbar__element__selected ".concat(selectedBorder), transition: {
                             duration: 0.3,
-                            type: 'spring'
+                            type: "spring"
                         } }),
-                    react_1["default"].createElement(framer_motion_1.motion.div, { layoutId: 'bg-glow', className: "shiny-glow", initial: {
+                    react_1["default"].createElement(framer_motion_1.motion.div, { layoutId: "bg-glow", className: "shiny-glow", initial: {
                             opacity: 0
                         }, animate: {
-                            opacity: '0.2',
+                            opacity: "0.2",
                             scale: 2,
                             rotate: 85
                         }, transition: {
                             duration: 0.3,
-                            type: 'spring'
+                            type: "spring"
                         } }))),
                 item.label));
         })))));

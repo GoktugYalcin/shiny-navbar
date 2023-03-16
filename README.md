@@ -45,20 +45,42 @@ import { ShinyNavbar } from "shiny-navbar";
 import 'shiny-navbar/dist/shiny-navbar.css';
 
 const App = () => {
-  const config: NavbarItem[] = [
-    {
-      label: 'Main',
-    },
-    {
-      label: 'Photos',
-    },
-    {
-      label: 'About',
-    },
-    {
-      label: 'Guestbook',
-    }
-  ]
+    const config: NavbarItem[] = [
+        {
+            label: "Nav1",
+            onPerform() {
+                console.log("Nav1 is triggered!");
+            },
+        },
+        {
+            label: "Nav2",
+            onPerform() {
+                console.log("Nav2 is triggered!");
+            },
+            url: "https://google.com",
+        },
+        {
+            label: "Nav3",
+            onPerform(
+                event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+                item: NavbarItem,
+                itemIndex: number
+            ) {
+                console.log({ event, item, itemIndex });
+            },
+            customClass: "green-text",
+        },
+        {
+            label: "Nav4",
+            onPerform(
+                event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+                item: NavbarItem,
+                itemIndex: number
+            ) {
+                console.log({ event, item, itemIndex });
+            },
+        },
+    ];
   
   return <div>
     <ShinyNavbar items={config} />
